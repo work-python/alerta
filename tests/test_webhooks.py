@@ -707,10 +707,10 @@ class WebhooksTestCase(unittest.TestCase):
         self.assertEqual(data['alert']['group'], 'Performance')
         self.assertEqual(data['alert']['text'],
                          'Battery Voltage dropped below 23.7 Volts, please investigate')
-        self.assertDictEqual(data['alert']['attributes'], {
+        self.assertEqual(sorted(data['alert']['attributes']), sorted({
             'enabled': 'true', 'ip': '192.168.1.1', 'on-alerting': 'relay-on', 'on-ok': 'ignore', 'relay': '7', 'ruleId': '58',
             'ruleUrl': '<a href="https://grafana.logreposit.com/d/Rs6E_oHWk/playground?fullscreen&edit&tab=alert&panelId=2&orgId=1" target="_blank">Rule</a>'
-        })
+        }))
 
     def test_graylog_webhook(self):
         # graylog alert
