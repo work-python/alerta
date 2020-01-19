@@ -670,6 +670,7 @@ class WebhooksTestCase(unittest.TestCase):
 
         # check tags with dots are replaced with underscores ie. 'info.host_id' => 'info_host_id'
         self.assertEqual(data['alert']['attributes']['info_host_id'], 'i-0d0721c7f97545d43')
+        self.assertEqual(data['alert']['attributes'], 'fkoo')
 
         alert_id = data['id']
 
